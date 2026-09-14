@@ -1,0 +1,47 @@
+[project]
+name = "calculator"
+version = "5.0.0"
+requires-python = ">=3.13"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+src = ["src", "tests"]
+
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".ruff_cache",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # Pyflakes
+    "I",    # сортировка импортов
+    "B",    # flake8-bugbear
+    "UP",   # современный Python-синтаксис
+    "SIM",  # упрощения конструкций
+    "RUF",  # собственные проверки Ruff
+
+]
+
+ignore = [
+    "E501", # длину строк контролирует formatter
+    "RUF001",
+    "RUF002",
+    "RUF003",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "S101",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
